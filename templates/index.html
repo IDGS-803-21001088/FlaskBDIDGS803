@@ -1,7 +1,5 @@
-{% extends "layout.html" %}
-
+{% extends 'layout.html' %}
 {% block container %}
-
 
 
 <div class="relative overflow-x-auto">
@@ -9,66 +7,60 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
-                    Product name
+                    Nombre
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                    Apaterno
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Correo
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Price
+                    Editar
+                </th>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Detalles
+                </th>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Eliminar
                 </th>
             </tr>
         </thead>
         <tbody>
+            {%for alum in alumnos%}
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
+                    {{alum.nombre}}
+            </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{alum.apaterno}}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                {{alum.email}}
                 </td>
-                <td class="px-6 py-4">
-                    $2999
+                <td class="px-6 py-4 text-right">
+                    <a href="modificar?id={{alum.id}}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Green</a>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+                    </svg>
                 </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
+                <td class="px-6 py-4 text-right">
+                    <a href="detalles?id={{alum.id}}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">red</a>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+                    </svg>
                 </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-            </tr>
-            <tr class="bg-white dark:bg-gray-800">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
+                <td class="px-6 py-4 text-right">
+                    <a href="eliminar?id={{alum.id}}" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Blue</a>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+                        <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+                    </svg>
                 </td>
             </tr>
+            {%endfor%}
         </tbody>
     </table>
 </div>
-
-
-
 {% endblock %}
